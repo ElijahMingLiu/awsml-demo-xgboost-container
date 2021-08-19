@@ -26,6 +26,10 @@ RUN pip3 install -i https://pypi.doubanio.com/simple boto3 numpy scipy scikit-le
 
 ENV PYTHONUNBUFFERED=TRUE
 ENV PYTHONDONTWRITEBYTECODE=TRUE
-ENV PATH="/opt/program:${PATH}"
+ENV PATH="/opt/ml/code:${PATH}"
 
-WORKDIR /opt/program
+WORKDIR /opt/ml/code
+
+COPY code /opt/ml/code
+RUN chmod +x train
+
